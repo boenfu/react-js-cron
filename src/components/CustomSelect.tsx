@@ -1,10 +1,10 @@
 import React, { useMemo, useCallback, useRef } from 'react'
-import Select from 'antd/lib/select'
 
 import { CustomSelectProps, Clicks } from '../types'
 import { DEFAULT_LOCALE_EN } from '../locale'
 import { classNames, sort } from '../utils'
 import { parsePartArray, partToString, formatValue } from '../converter'
+import Select from '@douyinfe/semi-ui/lib/es/select'
 
 export default function CustomSelect(props: CustomSelectProps) {
   const {
@@ -81,15 +81,14 @@ export default function CustomSelect(props: CustomSelectProps) {
       )
       const testEveryValue = cronValue.match(/^\*\/([0-9]+),?/) || []
 
-      return (
-        <div>
-          {testEveryValue[1]
-            ? `${locale.everyText || DEFAULT_LOCALE_EN.everyText} ${
-                testEveryValue[1]
-              }`
-            : cronValue}
-        </div>
-      )
+      return {
+        isRenderInTag: true,
+        content: testEveryValue[1]
+          ? `${locale.everyText || DEFAULT_LOCALE_EN.everyText} ${
+              testEveryValue[1]
+            }`
+          : cronValue,
+      }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [value, localeJSON, humanizeLabels, leadingZero, clockFormat]
@@ -244,36 +243,21 @@ export default function CustomSelect(props: CustomSelectProps) {
 
   return (
     <Select
-      // Use 'multiple' instead of 'tags‘ mode
-      // cf: Issue #2
-      mode='multiple'
-      allowClear={!readOnly}
-      virtual={false}
-      open={readOnly ? false : undefined}
+      multiple
+      showClear={!readOnly}
+      // open={readOnly ? false : undefined}
       value={stringValue}
       onClear={onClear}
-      tagRender={renderTag}
+      renderSelectedItem={renderTag}
       className={internalClassName}
       dropdownClassName={dropdownClassNames}
-      options={options}
-      showSearch={false}
+      optionList={options}
+      filter={false}
       showArrow={!readOnly}
-      menuItemSelectedIcon={null}
       dropdownMatchSelectWidth={false}
       onSelect={onOptionClick}
       onDeselect={onOptionClick}
       disabled={disabled}
-      dropdownAlign={
-        (unit.type === 'minutes' || unit.type === 'hours') &&
-        period !== 'day' &&
-        period !== 'hour'
-          ? {
-              // Usage: https://github.com/yiminghe/dom-align
-              // Set direction to left to prevent dropdown to overlap window
-              points: ['tr', 'br'],
-            }
-          : undefined
-      }
       {...otherProps}
     />
   )

@@ -1,17 +1,20 @@
 ## ReactJS Cron
 
-> A React cron editor built with [antd](https://github.com/ant-design/ant-design)
+> This package is based on Xavier Rutayisire package
+> (https://github.com/xrutayisire/react-js-cron) A React cron editor built with
+> [semi](https://github.com/DouyinFE/semi-design)
 
-[![npm package](https://img.shields.io/npm/v/react-js-cron/latest.svg)](https://www.npmjs.com/package/react-js-cron)
+[![npm package](https://img.shields.io/npm/v/react-js-cron-semi/latest.svg)](https://www.npmjs.com/package/react-js-cron-semi)
 [![MIT License Badge](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/xrutayisire/react-js-cron/blob/master/LICENSE.md)
 
-Live **demo** and **usage** at [https://xrutayisire.github.io/react-js-cron/](https://xrutayisire.github.io/react-js-cron/?path=/docs/reactjs-cron--demo)
+Live **demo** and **usage** at
+[https://xrutayisire.github.io/react-js-cron/](https://xrutayisire.github.io/react-js-cron/?path=/docs/reactjs-cron--demo)
 
 ![react-js-cron example](https://raw.githubusercontent.com/xrutayisire/react-js-cron/master/react-js-cron-example.png)
 
 ## Features
 
-- Zero dependencies except React and antd
+- Zero dependencies except React and semi
 - Supports all standard cron expressions
 - Supports cron names for months and week days
 - Supports cron shortcuts
@@ -29,8 +32,9 @@ Live **demo** and **usage** at [https://xrutayisire.github.io/react-js-cron/](ht
 ## Installation
 
 Be sure that you have these dependencies on your project:
-* react (>=16.8.0)
-* antd (>=4.6.0)
+
+- react (>=16.8.0)
+- semi (>=2.4.0)
 
 ```bash
 # Yarn
@@ -46,7 +50,8 @@ react-js-cron is written in TypeScript with complete definitions
 
 ## Usage
 
-Learn more with [dynamic settings](https://xrutayisire.github.io/react-js-cron/?path=/story/reactjs-cron--dynamic-settings).
+Learn more with
+[dynamic settings](https://xrutayisire.github.io/react-js-cron/?path=/story/reactjs-cron--dynamic-settings).
 
 - [Two-way sync binding with input](https://xrutayisire.github.io/react-js-cron/?path=/story/reactjs-cron--input)
 - [Default value](https://xrutayisire.github.io/react-js-cron/?path=/story/reactjs-cron--default-value)
@@ -74,7 +79,7 @@ CronProps {
   /**
    * Cron value, the component is by design a controlled component.
    * The first value will be the default value.
-   * 
+   *
    * required
    */
   value: string
@@ -82,10 +87,10 @@ CronProps {
   /**
    * Set the cron value, similar to onChange.
    * The naming tells you that you have to set the value by yourself.
-   * 
+   *
    * required
    */
-  setValue: 
+  setValue:
     | (value: string) => void
     | Dispatch<SetStateAction<string>>
 
@@ -97,28 +102,28 @@ CronProps {
 
   /**
    * Humanize the labels in the cron component, SUN-SAT and JAN-DEC.
-   * 
+   *
    * Default: true
    */
   humanizeLabels?: boolean
 
   /**
    * Humanize the value, SUN-SAT and JAN-DEC.
-   * 
+   *
    * Default: false
    */
   humanizeValue?: boolean
 
   /**
    * Add a "0" before numbers lower than 10.
-   * 
+   *
    * Default: false
    */
   leadingZero?: boolean | ['month-days', 'hours', 'minutes']
 
   /**
    * Define the default period when the default value is empty.
-   * 
+   *
    * Default: 'day'
    */
   defaultPeriod?: 'year' | 'month' | 'week' | 'day' | 'hour' | 'minute' | 'reboot'
@@ -129,24 +134,24 @@ CronProps {
    * Default: false
    */
   disabled?: boolean
-  
+
   /**
    * Make the cron component read-only.
-   * 
+   *
    * Default: false
    */
   readOnly?: boolean
 
   /**
    * Define if empty should trigger an error.
-   * 
+   *
    * Default: 'for-default-value'
    */
   allowEmpty?: 'always' | 'never' | 'for-default-value'
 
   /**
    * Support cron shortcuts.
-   * 
+   *
    * Default: ['@yearly', '@annually', '@monthly', '@weekly', '@daily', '@midnight', '@hourly']
    */
   shortcuts?: boolean | ['@yearly', '@annually', '@monthly', '@weekly', '@daily', '@midnight', '@hourly', '@reboot']
@@ -158,13 +163,13 @@ CronProps {
 
   /**
    * Display the clear button.
-   * 
+   *
    * Default: true
    */
   clearButton?: boolean
 
   /**
-   * antd button props to customize the clear button.
+   * semi button props to customize the clear button.
    */
   clearButtonProps?: ButtonProps
 
@@ -177,7 +182,7 @@ CronProps {
 
   /**
    * Display error style (red border and background).
-   * 
+   *
    * Display: true
    */
   displayError?: boolean
@@ -185,7 +190,7 @@ CronProps {
   /**
    * Triggered when the cron component detects an error with the value.
    */
-  onError?: 
+  onError?:
     | (error: {
       type: 'invalid_cron'
       description: string
@@ -249,9 +254,4 @@ CronProps {
     altMonths?: string[]
   }
 }
-````
-
-## License
-
-MIT © [xrutayisire](https://github.com/xrutayisire)
-  
+```

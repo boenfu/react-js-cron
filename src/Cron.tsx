@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react'
-import Button from 'antd/lib/button'
 
 import { CronProps, PeriodType } from './types'
 import Period from './fields/Period'
@@ -13,6 +12,7 @@ import { DEFAULT_LOCALE_EN } from './locale'
 import { setValuesFromCronString, getCronStringFromValues } from './converter'
 
 import './styles.css'
+import Button from '@douyinfe/semi-ui/lib/es/button'
 
 export default function Cron(props: CronProps) {
   const {
@@ -229,8 +229,8 @@ export default function Cron(props: CronProps) {
         return (
           <Button
             className={clearButtonClassName}
-            danger
-            type='primary'
+            theme='solid'
+            type='danger'
             disabled={disabled}
             {...otherClearButtonProps}
             onClick={handleClear}

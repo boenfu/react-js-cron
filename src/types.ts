@@ -1,6 +1,6 @@
-import { SelectProps } from 'antd/lib/select'
+import { ButtonProps } from '@douyinfe/semi-ui/lib/es/button'
+import { SelectProps } from '@douyinfe/semi-ui/lib/es/select'
 import { Dispatch, SetStateAction } from 'react'
-import { ButtonProps } from 'antd/lib/button'
 
 // External props
 
@@ -96,7 +96,7 @@ export interface CronProps {
   clearButton?: boolean
 
   /**
-   * antd button props to customize the clear button.
+   * semi button props to customize the clear button.
    */
   clearButtonProps?: ClearButtonProps
 
@@ -261,20 +261,19 @@ export interface MinutesProps extends FieldProps {
 }
 export interface CustomSelectProps
   extends Omit<
-    SelectProps<any>,
-    | 'mode'
+    SelectProps,
+    | 'multiple'
     | 'tokenSeparators'
-    | 'allowClear'
-    | 'virtual'
+    | 'showClear'
     | 'onClick'
     | 'onBlur'
     | 'tagRender'
     | 'dropdownRender'
-    | 'showSearch'
+    | 'filter'
     | 'showArrow'
     | 'onChange'
     | 'dropdownMatchSelectWidth'
-    | 'options'
+    | 'optionList'
     | 'onSelect'
     | 'onDeselect'
   > {

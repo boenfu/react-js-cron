@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from 'react'
-import Select from 'antd/lib/select'
 
 import { PeriodProps } from '../types'
 import { DEFAULT_LOCALE_EN } from '../locale'
 import { classNames } from '../utils'
+import Select from '@douyinfe/semi-ui/lib/es/select'
 
 export default function Period(props: PeriodProps) {
   const { value, setValue, locale, className, disabled, readOnly, shortcuts } =
@@ -97,12 +97,12 @@ export default function Period(props: PeriodProps) {
         defaultValue={value}
         value={value}
         onChange={handleChange}
-        options={options}
+        optionList={options}
         className={selectClassName}
         dropdownClassName={dropdownClassName}
         disabled={disabled}
         showArrow={!readOnly}
-        open={readOnly ? false : undefined}
+        // open={readOnly ? false : undefined}
       />
     </div>
   )

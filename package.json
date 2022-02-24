@@ -1,8 +1,8 @@
 {
-  "name": "react-js-cron",
+  "name": "react-js-cron-semi",
   "version": "1.3.1",
-  "description": "A React cron editor with antd inspired by jqCron",
-  "author": "Xavier Rutayisire <xavier.rutayisire@gmail.com> (https://github.com/xrutayisire/)",
+  "description": "A React cron editor with semi inspired by jqCron",
+  "author": "boenfu <1997@boenfu.cn> (https://github.com/boenfu/)",
   "license": "MIT",
   "keywords": [
     "react",
@@ -13,19 +13,19 @@
     "editor",
     "widget",
     "generator",
-    "antd",
-    "ant-design",
+    "semi",
+    "semi-design",
     "cronjob",
     "schedule",
     "parser"
   ],
-  "homepage": "https://github.com/xrutayisire/react-js-cron#readme",
+  "homepage": "https://github.com/boenfu/react-js-cron#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xrutayisire/react-js-cron.git"
+    "url": "git+https://github.com/boenfu/react-js-cron.git"
   },
   "bugs": {
-    "url": "https://github.com/xrutayisire/react-js-cron/issues"
+    "url": "https://github.com/boenfu/react-js-cron/issues"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -42,15 +42,17 @@
     "prettier": "prettier --write 'src/**/*.{ts?(x),css}'"
   },
   "peerDependencies": {
-    "antd": ">=4.6.0",
+    "@douyinfe/semi-icons": ">=2.4.0",
+    "@douyinfe/semi-ui": ">=2.4.0",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@ant-design/icons": "4.7.0",
     "@babel/cli": "7.16.0",
     "@babel/plugin-proposal-export-default-from": "7.16.0",
     "@babel/plugin-transform-typescript": "7.16.1",
+    "@douyinfe/semi-icons": "^2.4.1",
+    "@douyinfe/semi-ui": "^2.4.1",
     "@storybook/addon-docs": "6.4.9",
     "@storybook/addons": "6.4.9",
     "@storybook/preset-create-react-app": "3.2.0",
@@ -60,7 +62,6 @@
     "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "5.6.0",
     "@typescript-eslint/parser": "5.6.0",
-    "antd": "4.17.3",
     "babel-plugin-transform-es2015-modules-umd": "6.24.1",
     "babel-plugin-typescript-to-proptypes": "2.0.0",
     "concurrently": "6.4.0",
