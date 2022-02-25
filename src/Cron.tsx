@@ -43,6 +43,7 @@ export default function Cron(props: CronProps) {
     ],
     clockFormat,
     periodicityOnDoubleClick = true,
+    nullable = false,
   } = props
   const internalValueRef = useRef<string>(value)
   const defaultPeriodRef = useRef<PeriodType>(defaultPeriod)
@@ -114,18 +115,22 @@ export default function Cron(props: CronProps) {
         !valueCleared &&
         !previousValueCleared
       ) {
-        const cron = getCronStringFromValues(
-          period || defaultPeriodRef.current,
-          months,
-          monthDays,
-          weekDays,
-          hours,
-          minutes,
-          humanizeValue
-        )
+        if (period !== 'null') {
+          const cron = getCronStringFromValues(
+            period || defaultPeriodRef.current,
+            months,
+            monthDays,
+            weekDays,
+            hours,
+            minutes,
+            humanizeValue
+          )
 
-        setValue(cron)
-        internalValueRef.current = cron
+          setValue(cron)
+          internalValueRef.current = cron
+        } else {
+          setValue('')
+        }
 
         onError && onError(undefined)
         setInternalError(false)
@@ -266,9 +271,10 @@ export default function Cron(props: CronProps) {
         disabled={disabled}
         readOnly={readOnly}
         shortcuts={shortcuts}
+        nullable={nullable}
       />
 
-      {periodForRender === 'reboot' ? (
+      {periodForRender === 'null' ? undefined : periodForRender === 'reboot' ? (
         clearButtonNode
       ) : (
         <>

@@ -140,6 +140,13 @@ export interface CronProps {
    * Default './locale.ts'
    */
   locale?: Locale
+
+  /**
+   * Add null options.
+   *
+   * Default false
+   */
+  nullable?: boolean
 }
 export interface Locale {
   everyText?: string
@@ -151,6 +158,7 @@ export interface Locale {
   emptyHours?: string
   emptyMinutes?: string
   emptyMinutesForHourPeriod?: string
+  nullOptions?: string
   yearOption?: string
   monthOption?: string
   weekOption?: string
@@ -190,6 +198,7 @@ export type OnError =
 export interface ClearButtonProps extends Omit<ButtonProps, 'onClick'> {}
 export type ClearButtonAction = 'empty' | 'fill-with-every'
 export type PeriodType =
+  | 'null'
   | 'year'
   | 'month'
   | 'week'
@@ -239,6 +248,7 @@ export interface PeriodProps
   value: PeriodType
   setValue: SetValuePeriod
   shortcuts: Shortcuts
+  nullable: boolean
 }
 export interface MonthsProps extends FieldProps {
   humanizeLabels: boolean
@@ -306,6 +316,7 @@ export interface DefaultLocale {
   emptyHours: string
   emptyMinutes: string
   emptyMinutesForHourPeriod: string
+  nullOptions: string
   yearOption: string
   monthOption: string
   weekOption: string

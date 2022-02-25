@@ -6,8 +6,16 @@ import { classNames } from '../utils'
 import Select from '@douyinfe/semi-ui/lib/es/select'
 
 export default function Period(props: PeriodProps) {
-  const { value, setValue, locale, className, disabled, readOnly, shortcuts } =
-    props
+  const {
+    value,
+    setValue,
+    locale,
+    className,
+    disabled,
+    readOnly,
+    shortcuts,
+    nullable,
+  } = props
   let options = [
     {
       value: 'year',
@@ -42,6 +50,16 @@ export default function Period(props: PeriodProps) {
         value: 'reboot',
         label: locale.rebootOption || DEFAULT_LOCALE_EN.rebootOption,
       },
+    ]
+  }
+
+  if (nullable) {
+    options = [
+      {
+        value: 'null',
+        label: locale.nullOptions || DEFAULT_LOCALE_EN.nullOptions,
+      },
+      ...options,
     ]
   }
 
@@ -102,7 +120,6 @@ export default function Period(props: PeriodProps) {
         dropdownClassName={dropdownClassName}
         disabled={disabled}
         showArrow={!readOnly}
-        // open={readOnly ? false : undefined}
       />
     </div>
   )

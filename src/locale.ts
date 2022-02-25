@@ -10,6 +10,7 @@ export const DEFAULT_LOCALE_EN: DefaultLocale = {
   emptyHours: 'every hour',
   emptyMinutes: 'every minute',
   emptyMinutesForHourPeriod: 'every',
+  nullOptions: 'null',
   yearOption: 'year',
   monthOption: 'month',
   weekOption: 'week',
