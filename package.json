@@ -39,7 +39,8 @@
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook",
     "lint": "eslint 'src/**/*.ts?(x)'",
-    "prettier": "prettier --write 'src/**/*.{ts?(x),css}'"
+    "prettier": "prettier --write 'src/**/*.{ts?(x),css}'",
+    "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
     "@douyinfe/semi-icons": ">=2.4.0",
