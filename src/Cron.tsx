@@ -26,6 +26,7 @@ export default function Cron(props: CronProps) {
     onError,
     className,
     defaultPeriod = 'day',
+    disablePeriods = [],
     allowEmpty = 'for-default-value',
     humanizeLabels = true,
     humanizeValue = false,
@@ -266,6 +267,7 @@ export default function Cron(props: CronProps) {
       <Period
         value={periodForRender}
         setValue={setPeriod}
+        disablePeriods={disablePeriods}
         locale={locale}
         className={className}
         disabled={disabled}

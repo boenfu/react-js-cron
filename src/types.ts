@@ -56,6 +56,13 @@ export interface CronProps {
   defaultPeriod?: PeriodType
 
   /**
+   * Define the disable periods
+   *
+   * Default: []
+   */
+  disablePeriods?: PeriodType[]
+
+  /**
    * Disable the cron component.
    *
    * Default: false
@@ -248,6 +255,7 @@ export interface PeriodProps
   value: PeriodType
   setValue: SetValuePeriod
   shortcuts: Shortcuts
+  disablePeriods: PeriodType[]
   nullable: boolean
 }
 export interface MonthsProps extends FieldProps {

@@ -9,6 +9,7 @@ export default function Period(props: PeriodProps) {
   const {
     value,
     setValue,
+    disablePeriods,
     locale,
     className,
     disabled,
@@ -61,6 +62,12 @@ export default function Period(props: PeriodProps) {
       },
       ...options,
     ]
+  }
+
+  if (disablePeriods.length) {
+    const disablePeriodSet = new Set<string>(disablePeriods)
+
+    options = options.filter((option) => !disablePeriodSet.has(option.value))
   }
 
   const handleChange = useCallback(
